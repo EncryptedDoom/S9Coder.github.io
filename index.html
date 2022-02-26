@@ -2,15 +2,10 @@
   <head>
     <title>Test</title>
     <script>
-      int v=0;
-      function fnc(){
-        const bt=document.get_Element_By_Id("ibt");
-        v=v+1;
-        bt.innerHTML=v;
-      }
+      document.getElementById("demo").innerHTML = "Hello JavaScript!";
     </script>
   </head>
   <body>
-    <button id="ibt" onclick="fnc()">0</button>
+    <h1 id="demo">This should not be displayed</h1>
   </body>
 </html>
