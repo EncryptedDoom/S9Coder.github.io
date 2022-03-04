@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route('/',methods =["GET", "POST"])
 def index():
     global name,profile_img
-    return render_template('index.html',name=name,profile_img=profile_img)
+    return render_template('/index.html',name=name,profile_img=profile_img)
 
 driver = webdriver.Chrome("chromedriver.exe")
 #Link to NFT
