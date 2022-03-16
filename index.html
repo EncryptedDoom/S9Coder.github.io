@@ -1,32 +1,42 @@
 <html>
-<head>
-<title>NFT</title>
-<style>
-body{
-background-image:linear-gradient(to right,#000c40,#f0f2f0,#000c40);
-margin:0;
-display:flex;
-justify-content:center;
-}
-.txt{
-font-size:7vh;
-top:72vh;
-position:absolute;
-}
-.img{
-width:60vh;
-height:60vh;
-border-radius:50%;
-border:6px solid black;
-object-fit:cover;
-top:15vh;
-position:absolute;
-}
-</style>
-</head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<body>
-<p class="txt">{{name}}</p>
-<img src="{{profile_img}}" alt="Profile Image" class="img">
-</body>
+ <script>
+const express = require("express");
+const bodyParser = require("body-parser")
+const fs = require('fs')
+
+const app = express();
+app.use(bodyParser.urlencoded({
+    extended:true
+}));
+
+app.get("/", function(req, res) {
+  console.log(req)
+  fs.readFile('data.txt', 'utf8', function(err, data){
+    res.send(data);
+  });
+});
+
+app.post("/", function(req, res) {
+  let data = '';
+  req.on('data', chunk => {
+    data += chunk;
+  });
+
+  req.on('end', () => {
+    dtr=JSON.stringify(data);
+    fs.readFile('data.txt', 'utf8', function(err, dt){
+      fs.writeFile('data.txt', dt+dtr+"e8282_21921923nwuw7sujsywy//yauewjDcehc", (err) => {
+        if (err) throw err;
+  })})});
+  
+  fs.readFile('data.txt', 'utf8', function(err2, data2){
+    res.send(data2);
+  });
+});
+
+app.listen(3000, function(){
+  console.log("server is running on port 3000");
+});
+  </script>
 </html>
+ 
